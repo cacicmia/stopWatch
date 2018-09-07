@@ -1,56 +1,54 @@
-let sec = 0;
-let msec = 0;
-let start = false;
+var Watch= {
+  sec: 0,
+  msec: 0,
+  start: false,
+  count: function(){
+    if (Watch.start=== false){
+      Watch.start = true;
+      Watch.interval = setInterval(function() {
+    Watch.msec++;
+    if (Watch.msec == 100) {
+      Watch.sec++;
+      Watch.msec = 0;
+  }
+    document.getElementById('count').innerHTML = `${Watch.sec}.${Watch.msec}`;
+  }, 10);
 
-document.getElementById('no1').addEventListener('click', watchControl);
+  } else {
+    Watch.start = false;
+    clearInterval(Watch.interval);
+  }
+},
+reset: function(){
+  location.reload();
+},
+record: function() {
+  let rTime = document.createElement('p');
+  rTime.innerHTML = `${Watch.sec}.${Watch.msec}`;
+    document.getElementById('PT').appendChild(rTime);
+}
 
-document.getElementById('no2').addEventListener('click', reset);
+};
 
-document.getElementById('no3').addEventListener('click', record);
+document.getElementById('no1').addEventListener('click', Watch.count);
+
+document.getElementById('no2').addEventListener('click', Watch.reset);
+
+document.getElementById('no3').addEventListener('click', Watch.record);
 
 
 document.addEventListener('keydown', function(event){
   switch(event.which) {
     case 82:
-      reset();
+      Watch.reset();
       break;
     case 83:
-      watchControl();
+      Watch.count();
       break;
     case 84:
-      record();
+      Watch.record();
       break;
     default:
       break;
   }
 });
-function watchControl(){
-
-if (start=== false){
-        start = true;
-  var interval = setInterval(count, 10);
-
-} else {
-  start = false;
-  clearInterval(interval);
-}
-
-};
-
-function count(){
-    msec++;
-    if (msec == 100) {
-    sec++; msec = 0;
-  }
-
-  document.getElementById('count').innerHTML = `${sec}.${msec}`;
-}
-function reset() {
-  location.reload();
-}
-function record() {
-let rTime = document.createElement('p');
-rTime.innerHTML = `${sec}.${msec}`;
-  document.getElementById('PT').appendChild(rTime);
-
-}
