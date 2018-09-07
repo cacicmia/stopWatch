@@ -1,0 +1,28 @@
+body{
+  background-color: #5e989c;
+  background-image:url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
+  }
+
+#count {
+  margin: 1% 10% 5%;;
+  font-size: 2em;
+
+}
+#no1,
+#no2,
+#no3 {
+  padding:2% 1%;
+  font-family:'Inconsolata', monospace;
+}
+p,
+h1 {
+    font-family:'Inconsolata', monospace;
+}
+#no1:hover,
+#no2:hover,
+#no3:hover {
+  background-color: rgba(5,20,30, 0.5);
+}
+h1 {
+  font-size: 40px;
+}
