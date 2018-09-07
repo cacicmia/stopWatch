@@ -25,14 +25,14 @@ document.addEventListener('keydown', function(event){
   }
 });
 function watchControl(){
-  if (start == false) {
-    start = true;
+
+if (start=== false){
+        start = true;
   var interval = setInterval(count, 10);
 
 } else {
   start = false;
   clearInterval(interval);
-
 }
 
 };
